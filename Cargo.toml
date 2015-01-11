@@ -2,6 +2,5 @@
 
 name = "tlak"
 version = "0.0.1"
-authors = ["Carter Hinsley <carterhinsley@gmail.com>"]
 
 git = "https://github.com/xnil/tlak.git"
