@@ -1,4 +1,5 @@
-use std::io::TcpStream;
+use std::io::{TcpStream, TcpListener, Acceptor, Listener};
+use std::thread::Thread;
 
 trait HasSocket {
 	fn send(&mut self, String);
@@ -32,7 +33,33 @@ struct ServerConnection {
 	socket: TcpStream,
 }
 
-//TODO: Add server socket generator
+/// Called from non-main thread on an incoming connection. Handles all
+/// incoming/outcoming data and server logic.
+fn server_client_handler(conn: ServerConnection) {
+	() //TODO: Write client handler
+}
+
+/// Create a listener and run mainloop, spawning additional threads per
+/// incoming connection.
+fn server_mainloop(host: &str, port: u32) {
+	let listener = TcpListener::bind(format!("{}:{}", host, port).as_slice());
+	
+	let mut acceptor = listener.listen();
+	for stream in acceptor.incoming() {
+		match stream {
+			Ok(stream) => {
+				Thread::spawn(move || {
+					server_client_handler(ServerConnection {
+						socket: stream
+						});
+					});
+				},
+			Err(e) => (), //TODO: Add error reports [connection failed]
+		}
+	}
+	
+	drop(acceptor);
+}
 
 impl HasSocket for ServerConnection {
 	fn send(&mut self, msg: String) {
