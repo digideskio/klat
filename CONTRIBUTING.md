@@ -2,7 +2,7 @@
 
 ### Overview
 
-* Fork Tlak
+* Fork Klat
 * Prefix your commits like so:
   * (feat) Add a new feature
   * (fix) Fixed inconsistent tests
