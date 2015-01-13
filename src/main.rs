@@ -1,3 +1,4 @@
+#![allow(unstable)]
 use connection::HasSocket;
 mod connection;
 

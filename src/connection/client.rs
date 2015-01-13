@@ -1,4 +1,5 @@
-use std::io::{TcpStream, TcpListener, Acceptor, Listener};
+#![allow(unstable)]
+use std::io::{TcpStream};
 use connection;
 
 pub struct ClientConnection {

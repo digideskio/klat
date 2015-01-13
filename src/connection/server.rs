@@ -1,3 +1,4 @@
+#![allow(unstable)]
 use std::io::{TcpStream, TcpListener, Acceptor, Listener};
 use std::thread::Thread;
 pub use connection;
@@ -27,7 +28,7 @@ pub fn server_mainloop(host: &str, port: u32) {
                         });
                     });
                 },
-            Err(e) => (), //TODO: Add error reports [connection failed]
+            Err(_) => (), //TODO: Add error reports [connection failed]
         }
     }
     
