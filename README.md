@@ -1,2 +1,3 @@
 # klat
-cross-platform voice, video, and text chat
+Minimal cross-platform voice, video, and text chat
+
